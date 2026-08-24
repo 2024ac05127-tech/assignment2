@@ -19,9 +19,9 @@ from sklearn.metrics import (
 )
 
 
-# ==================================================
+# ============================================================
 # Configuration
-# ==================================================
+# ============================================================
 
 IMAGE_SIZE = 224
 
@@ -38,24 +38,28 @@ SEED = 42
 torch.manual_seed(SEED)
 
 
-# ==================================================
+# ============================================================
 # Directories
-# ==================================================
+# ============================================================
+
+MODEL_DIR = "models"
+
+ARTIFACT_DIR = "artifacts"
 
 os.makedirs(
-    "models",
+    MODEL_DIR,
     exist_ok=True
 )
 
 os.makedirs(
-    "artifacts",
+    ARTIFACT_DIR,
     exist_ok=True
 )
 
 
-# ==================================================
+# ============================================================
 # Device
-# ==================================================
+# ============================================================
 
 device = torch.device(
     "cuda"
@@ -63,12 +67,22 @@ device = torch.device(
     else "cpu"
 )
 
-print("Using device:", device)
+print()
+print("=" * 60)
+print("Cats vs Dogs - Baseline CNN")
+print("=" * 60)
+
+print(
+    f"Using device: {device}"
+)
 
 
-# ==================================================
-# Data Augmentation
-# ==================================================
+# ============================================================
+# Data transformations
+# ============================================================
+
+# Training:
+# Data augmentation is applied ONLY to training data.
 
 train_transform = transforms.Compose([
 
@@ -76,23 +90,39 @@ train_transform = transforms.Compose([
         (IMAGE_SIZE, IMAGE_SIZE)
     ),
 
-    transforms.RandomHorizontalFlip(),
+    transforms.RandomHorizontalFlip(
+        p=0.5
+    ),
 
-    transforms.RandomRotation(10),
+    transforms.RandomRotation(
+        degrees=10
+    ),
 
     transforms.ColorJitter(
         brightness=0.2,
-        contrast=0.2
+        contrast=0.2,
+        saturation=0.2
     ),
 
     transforms.ToTensor(),
 
     transforms.Normalize(
-        mean=[0.485, 0.456, 0.406],
-        std=[0.229, 0.224, 0.225]
+        mean=[
+            0.485,
+            0.456,
+            0.406
+        ],
+        std=[
+            0.229,
+            0.224,
+            0.225
+        ]
     )
 ])
 
+
+# Validation and test:
+# NO augmentation.
 
 val_test_transform = transforms.Compose([
 
@@ -103,41 +133,80 @@ val_test_transform = transforms.Compose([
     transforms.ToTensor(),
 
     transforms.Normalize(
-        mean=[0.485, 0.456, 0.406],
-        std=[0.229, 0.224, 0.225]
+        mean=[
+            0.485,
+            0.456,
+            0.406
+        ],
+        std=[
+            0.229,
+            0.224,
+            0.225
+        ]
     )
 ])
 
 
-# ==================================================
+# ============================================================
 # Load datasets
-# ==================================================
+# ============================================================
 
 train_dataset = datasets.ImageFolder(
-    "data/processed/train",
+    root="data/processed/train",
     transform=train_transform
 )
 
 val_dataset = datasets.ImageFolder(
-    "data/processed/val",
+    root="data/processed/val",
     transform=val_test_transform
 )
 
 test_dataset = datasets.ImageFolder(
-    "data/processed/test",
+    root="data/processed/test",
     transform=val_test_transform
 )
 
 
-print(
-    "Classes:",
-    train_dataset.classes
-)
+# ============================================================
+# IMPORTANT: Class mapping
+# ============================================================
+
+print()
+print("Classes:")
+print(train_dataset.classes)
+
+print()
+print("Class mapping:")
+print(train_dataset.class_to_idx)
 
 
-# ==================================================
+# Expected:
+#
+# Classes:
+# ['cats', 'dogs']
+#
+# Class mapping:
+# {'cats': 0, 'dogs': 1}
+
+
+# ============================================================
+# Verify class mapping
+# ============================================================
+
+if train_dataset.class_to_idx != {
+    "cats": 0,
+    "dogs": 1
+}:
+
+    raise ValueError(
+        "Unexpected class mapping. "
+        f"Found: {train_dataset.class_to_idx}"
+    )
+
+
+# ============================================================
 # Data loaders
-# ==================================================
+# ============================================================
 
 train_loader = DataLoader(
     train_dataset,
@@ -161,9 +230,26 @@ test_loader = DataLoader(
 )
 
 
-# ==================================================
+print()
+print(
+    f"Training images: "
+    f"{len(train_dataset)}"
+)
+
+print(
+    f"Validation images: "
+    f"{len(val_dataset)}"
+)
+
+print(
+    f"Test images: "
+    f"{len(test_dataset)}"
+)
+
+
+# ============================================================
 # Baseline CNN
-# ==================================================
+# ============================================================
 
 class BaselineCNN(nn.Module):
 
@@ -173,10 +259,10 @@ class BaselineCNN(nn.Module):
 
         self.features = nn.Sequential(
 
-            # 224 -> 112
+            # 224 x 224
             nn.Conv2d(
-                3,
-                16,
+                in_channels=3,
+                out_channels=16,
                 kernel_size=3,
                 padding=1
             ),
@@ -185,11 +271,10 @@ class BaselineCNN(nn.Module):
 
             nn.MaxPool2d(2),
 
-
-            # 112 -> 56
+            # 112 x 112
             nn.Conv2d(
-                16,
-                32,
+                in_channels=16,
+                out_channels=32,
                 kernel_size=3,
                 padding=1
             ),
@@ -198,11 +283,10 @@ class BaselineCNN(nn.Module):
 
             nn.MaxPool2d(2),
 
-
-            # 56 -> 28
+            # 56 x 56
             nn.Conv2d(
-                32,
-                64,
+                in_channels=32,
+                out_channels=64,
                 kernel_size=3,
                 padding=1
             ),
@@ -211,11 +295,10 @@ class BaselineCNN(nn.Module):
 
             nn.MaxPool2d(2),
 
-
-            # 28 -> 14
+            # 28 x 28
             nn.Conv2d(
-                64,
-                128,
+                in_channels=64,
+                out_channels=128,
                 kernel_size=3,
                 padding=1
             ),
@@ -223,6 +306,9 @@ class BaselineCNN(nn.Module):
             nn.ReLU(),
 
             nn.MaxPool2d(2)
+
+            # Output:
+            # 128 x 14 x 14
         )
 
 
@@ -237,8 +323,13 @@ class BaselineCNN(nn.Module):
 
             nn.ReLU(),
 
-            nn.Dropout(0.5),
+            nn.Dropout(
+                p=0.5
+            ),
 
+            # 2 outputs:
+            # index 0 = cats
+            # index 1 = dogs
             nn.Linear(
                 128,
                 NUM_CLASSES
@@ -255,12 +346,22 @@ class BaselineCNN(nn.Module):
         return x
 
 
-model = BaselineCNN().to(device)
+# ============================================================
+# Create model
+# ============================================================
+
+model = BaselineCNN()
+
+model = model.to(device)
 
 
-# ==================================================
+print()
+print("Model created.")
+
+
+# ============================================================
 # Loss and optimizer
-# ==================================================
+# ============================================================
 
 criterion = nn.CrossEntropyLoss()
 
@@ -270,9 +371,9 @@ optimizer = optim.Adam(
 )
 
 
-# ==================================================
+# ============================================================
 # MLflow
-# ==================================================
+# ============================================================
 
 mlflow.set_experiment(
     "Cats_Dogs_Baseline_CNN"
@@ -281,9 +382,13 @@ mlflow.set_experiment(
 
 with mlflow.start_run():
 
-    # ----------------------------------------------
+    print()
+    print("MLflow run started.")
+
+
+    # ========================================================
     # Log parameters
-    # ----------------------------------------------
+    # ========================================================
 
     mlflow.log_param(
         "model",
@@ -316,14 +421,19 @@ with mlflow.start_run():
     )
 
     mlflow.log_param(
+        "num_classes",
+        NUM_CLASSES
+    )
+
+    mlflow.log_param(
         "augmentation",
-        "HorizontalFlip, Rotation, ColorJitter"
+        "HorizontalFlip + Rotation + ColorJitter"
     )
 
 
-    # ----------------------------------------------
-    # Training
-    # ----------------------------------------------
+    # ========================================================
+    # Lists for plots
+    # ========================================================
 
     train_losses = []
 
@@ -334,15 +444,19 @@ with mlflow.start_run():
     val_accuracies = []
 
 
+    # ========================================================
+    # Training loop
+    # ========================================================
+
     for epoch in range(EPOCHS):
 
-        # ==========================================
+        # ----------------------------------------------------
         # TRAIN
-        # ==========================================
+        # ----------------------------------------------------
 
         model.train()
 
-        running_loss = 0
+        running_loss = 0.0
 
         correct = 0
 
@@ -356,38 +470,46 @@ with mlflow.start_run():
             labels = labels.to(device)
 
 
+            # Clear gradients
             optimizer.zero_grad()
 
 
+            # Forward pass
             outputs = model(images)
 
 
+            # Calculate loss
             loss = criterion(
                 outputs,
                 labels
             )
 
 
+            # Backpropagation
             loss.backward()
 
+
+            # Update weights
             optimizer.step()
 
 
+            # Statistics
             running_loss += (
                 loss.item()
                 * images.size(0)
             )
 
 
-            _, predicted = torch.max(
+            _, predictions = torch.max(
                 outputs,
-                1
+                dim=1
             )
+
 
             total += labels.size(0)
 
             correct += (
-                predicted == labels
+                predictions == labels
             ).sum().item()
 
 
@@ -401,17 +523,17 @@ with mlflow.start_run():
         )
 
 
-        # ==========================================
+        # ----------------------------------------------------
         # VALIDATION
-        # ==========================================
+        # ----------------------------------------------------
 
         model.eval()
 
-        val_loss = 0
+        validation_loss = 0.0
 
-        val_correct = 0
+        validation_correct = 0
 
-        val_total = 0
+        validation_total = 0
 
 
         with torch.no_grad():
@@ -432,37 +554,42 @@ with mlflow.start_run():
                 )
 
 
-                val_loss += (
+                validation_loss += (
                     loss.item()
                     * images.size(0)
                 )
 
 
-                _, predicted = torch.max(
+                _, predictions = torch.max(
                     outputs,
-                    1
+                    dim=1
                 )
 
 
-                val_total += labels.size(0)
+                validation_total += (
+                    labels.size(0)
+                )
 
-                val_correct += (
-                    predicted == labels
+
+                validation_correct += (
+                    predictions == labels
                 ).sum().item()
 
 
         val_loss = (
-            val_loss
+            validation_loss
             / len(val_dataset)
         )
 
         val_accuracy = (
-            val_correct
-            / val_total
+            validation_correct
+            / validation_total
         )
 
 
-        # Store values
+        # ----------------------------------------------------
+        # Store metrics
+        # ----------------------------------------------------
 
         train_losses.append(
             train_loss
@@ -481,7 +608,9 @@ with mlflow.start_run():
         )
 
 
-        # MLflow
+        # ----------------------------------------------------
+        # MLflow metrics
+        # ----------------------------------------------------
 
         mlflow.log_metric(
             "train_loss",
@@ -508,6 +637,10 @@ with mlflow.start_run():
         )
 
 
+        # ----------------------------------------------------
+        # Print
+        # ----------------------------------------------------
+
         print(
             f"Epoch {epoch + 1}/{EPOCHS} | "
             f"Train Loss: {train_loss:.4f} | "
@@ -517,9 +650,9 @@ with mlflow.start_run():
         )
 
 
-    # ==================================================
+    # ========================================================
     # TEST
-    # ==================================================
+    # ========================================================
 
     model.eval()
 
@@ -536,38 +669,46 @@ with mlflow.start_run():
 
             outputs = model(images)
 
-            _, predicted = torch.max(
+
+            _, predictions = torch.max(
                 outputs,
-                1
+                dim=1
             )
+
 
             all_labels.extend(
                 labels.numpy()
             )
 
             all_predictions.extend(
-                predicted.cpu().numpy()
+                predictions.cpu().numpy()
             )
 
 
-    # ==================================================
+    # ========================================================
     # Test accuracy
-    # ==================================================
+    # ========================================================
 
-    correct = sum(
-        p == y
-        for p, y in zip(
+    test_correct = sum(
+
+        prediction == label
+
+        for prediction, label
+
+        in zip(
             all_predictions,
             all_labels
         )
     )
 
+
     test_accuracy = (
-        correct
+        test_correct
         / len(all_labels)
     )
 
 
+    print()
     print(
         f"Test Accuracy: "
         f"{test_accuracy:.4f}"
@@ -580,9 +721,31 @@ with mlflow.start_run():
     )
 
 
-    # ==================================================
+    # ========================================================
+    # Classification report
+    # ========================================================
+
+    report = classification_report(
+
+        all_labels,
+
+        all_predictions,
+
+        target_names=[
+            "cats",
+            "dogs"
+        ]
+    )
+
+
+    print()
+    print("Classification Report:")
+    print(report)
+
+
+    # ========================================================
     # Confusion Matrix
-    # ==================================================
+    # ========================================================
 
     cm = confusion_matrix(
         all_labels,
@@ -594,101 +757,143 @@ with mlflow.start_run():
         figsize=(6, 5)
     )
 
+
     sns.heatmap(
+
         cm,
+
         annot=True,
+
         fmt="d",
-        xticklabels=train_dataset.classes,
-        yticklabels=train_dataset.classes
+
+        xticklabels=[
+            "cats",
+            "dogs"
+        ],
+
+        yticklabels=[
+            "cats",
+            "dogs"
+        ]
     )
 
-    plt.xlabel("Predicted")
 
-    plt.ylabel("Actual")
+    plt.xlabel(
+        "Predicted"
+    )
+
+    plt.ylabel(
+        "Actual"
+    )
 
     plt.title(
         "Cats vs Dogs Confusion Matrix"
     )
 
+
     plt.tight_layout()
 
-    confusion_path = (
-        "artifacts/confusion_matrix.png"
+
+    confusion_matrix_path = (
+        f"{ARTIFACT_DIR}/confusion_matrix.png"
     )
 
+
     plt.savefig(
-        confusion_path
+        confusion_matrix_path
     )
 
     plt.close()
 
 
     mlflow.log_artifact(
-        confusion_path
+        confusion_matrix_path
     )
 
 
-    # ==================================================
-    # Loss Curve
-    # ==================================================
+    # ========================================================
+    # Loss curve
+    # ========================================================
 
     plt.figure()
 
+
     plt.plot(
+        range(1, EPOCHS + 1),
         train_losses,
         label="Train Loss"
     )
 
+
     plt.plot(
+        range(1, EPOCHS + 1),
         val_losses,
         label="Validation Loss"
     )
 
-    plt.xlabel("Epoch")
 
-    plt.ylabel("Loss")
+    plt.xlabel(
+        "Epoch"
+    )
 
-    plt.title("Training and Validation Loss")
+    plt.ylabel(
+        "Loss"
+    )
+
+    plt.title(
+        "Training and Validation Loss"
+    )
 
     plt.legend()
 
     plt.tight_layout()
 
-    loss_path = (
-        "artifacts/loss_curve.png"
+
+    loss_curve_path = (
+        f"{ARTIFACT_DIR}/loss_curve.png"
     )
 
+
     plt.savefig(
-        loss_path
+        loss_curve_path
     )
 
     plt.close()
 
 
     mlflow.log_artifact(
-        loss_path
+        loss_curve_path
     )
 
 
-    # ==================================================
-    # Accuracy Curve
-    # ==================================================
+    # ========================================================
+    # Accuracy curve
+    # ========================================================
 
     plt.figure()
 
+
     plt.plot(
+        range(1, EPOCHS + 1),
         train_accuracies,
         label="Train Accuracy"
     )
 
+
     plt.plot(
+        range(1, EPOCHS + 1),
         val_accuracies,
         label="Validation Accuracy"
     )
 
-    plt.xlabel("Epoch")
 
-    plt.ylabel("Accuracy")
+    plt.xlabel(
+        "Epoch"
+    )
+
+    plt.ylabel(
+        "Accuracy"
+    )
 
     plt.title(
         "Training and Validation Accuracy"
@@ -698,29 +903,32 @@ with mlflow.start_run():
 
     plt.tight_layout()
 
-    accuracy_path = (
-        "artifacts/accuracy_curve.png"
+
+    accuracy_curve_path = (
+        f"{ARTIFACT_DIR}/accuracy_curve.png"
     )
 
+
     plt.savefig(
-        accuracy_path
+        accuracy_curve_path
     )
 
     plt.close()
 
 
     mlflow.log_artifact(
-        accuracy_path
+        accuracy_curve_path
     )
 
 
-    # ==================================================
+    # ========================================================
     # Save model
-    # ==================================================
+    # ========================================================
 
     model_path = (
-        "models/baseline_cnn.pt"
+        f"{MODEL_DIR}/baseline_cnn.pt"
     )
+
 
     torch.save(
         model.state_dict(),
@@ -728,7 +936,16 @@ with mlflow.start_run():
     )
 
 
-    # Log model
+    print()
+    print(
+        f"Model saved to: "
+        f"{model_path}"
+    )
+
+
+    # ========================================================
+    # Log model to MLflow
+    # ========================================================
 
     mlflow.log_artifact(
         model_path
@@ -741,6 +958,7 @@ with mlflow.start_run():
     )
 
 
-    print(
-        "Model and artifacts saved."
-    )
+    print()
+    print("=" * 60)
+    print("MLflow run completed")
+    print("=" * 60)

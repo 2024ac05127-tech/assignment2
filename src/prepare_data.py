@@ -4,240 +4,384 @@ from pathlib import Path
 from PIL import Image
 
 
-# ==================================================
+# ============================================================
 # Configuration
-# ==================================================
+# ============================================================
 
-SOURCE_DIR = Path("data/raw/cats_and_dogs")
+# Root location of the downloaded Kaggle dataset
+RAW_DIR = Path("data/raw/cats_and_dogs")
 
-OUTPUT_DIR = Path("data/processed")
+# Where the processed dataset will be created
+PROCESSED_DIR = Path("data/processed")
 
+# Image size required for CNN
 IMAGE_SIZE = (224, 224)
 
+# Dataset split
 TRAIN_RATIO = 0.80
 VAL_RATIO = 0.10
 TEST_RATIO = 0.10
 
+# Reproducibility
 SEED = 42
 
 random.seed(SEED)
 
 
-# ==================================================
-# Check source directory
-# ==================================================
+# ============================================================
+# Check split ratios
+# ============================================================
 
-if not SOURCE_DIR.exists():
+assert (
+    TRAIN_RATIO + VAL_RATIO + TEST_RATIO == 1.0
+), "Train/Validation/Test ratios must add up to 1."
+
+
+# ============================================================
+# Find Cat/Dog directories automatically
+# ============================================================
+
+def find_class_directories():
+
+    possible_locations = [
+        RAW_DIR,
+        RAW_DIR / "PetImages"
+    ]
+
+    for location in possible_locations:
+
+        if not location.exists():
+            continue
+
+        entries = {
+            item.name.lower(): item
+            for item in location.iterdir()
+            if item.is_dir()
+        }
+
+        cat_dir = (
+            entries.get("cat")
+            or entries.get("cats")
+        )
+
+        dog_dir = (
+            entries.get("dog")
+            or entries.get("dogs")
+        )
+
+        if cat_dir and dog_dir:
+
+            print("Dataset found at:")
+            print(f"  {location}")
+            print(f"  Cats: {cat_dir}")
+            print(f"  Dogs: {dog_dir}")
+
+            return cat_dir, dog_dir
 
     raise FileNotFoundError(
-        f"Source directory does not exist: {SOURCE_DIR}"
+        "\nCould not find Cat and Dog folders.\n\n"
+        "Expected one of these structures:\n\n"
+        "data/raw/cats_and_dogs/Cat/\n"
+        "data/raw/cats_and_dogs/Dog/\n\n"
+        "OR\n\n"
+        "data/raw/cats_and_dogs/cats/\n"
+        "data/raw/cats_and_dogs/dogs/\n\n"
+        "OR\n\n"
+        "data/raw/cats_and_dogs/PetImages/Cat/\n"
+        "data/raw/cats_and_dogs/PetImages/Dog/\n"
     )
 
 
-print("Source directory:", SOURCE_DIR)
+# ============================================================
+# Get valid image files
+# ============================================================
+
+VALID_EXTENSIONS = {
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".bmp",
+    ".webp",
+    ".jfif"
+}
 
 
-# ==================================================
-# Classes
-# ==================================================
+def get_images(directory):
 
-classes = ["Cat", "Dog"]
+    images = []
 
+    for file in directory.iterdir():
 
-# ==================================================
-# Create output directories
-# ==================================================
+        if not file.is_file():
+            continue
 
-for split in ["train", "val", "test"]:
+        if file.suffix.lower() in VALID_EXTENSIONS:
+            images.append(file)
 
-    for class_name in classes:
-
-        output_path = (
-            OUTPUT_DIR
-            / split
-            / class_name
-        )
-
-        output_path.mkdir(
-            parents=True,
-            exist_ok=True
-        )
+    return images
 
 
-# ==================================================
-# Process each class
-# ==================================================
+# ============================================================
+# Process images
+# ============================================================
 
-for class_name in classes:
+def process_images(
+    image_files,
+    output_directory,
+    class_name
+):
 
-    source_class_dir = (
-        SOURCE_DIR / class_name
+    successful = 0
+    failed = 0
+
+    output_directory.mkdir(
+        parents=True,
+        exist_ok=True
     )
 
-    if not source_class_dir.exists():
+    for index, image_path in enumerate(image_files):
 
-        print(
-            f"WARNING: {source_class_dir} "
-            f"does not exist"
-        )
+        try:
 
-        continue
+            # Open image
+            image = Image.open(image_path)
+
+            # Convert every image to RGB
+            image = image.convert("RGB")
+
+            # Resize to 224 x 224
+            image = image.resize(
+                IMAGE_SIZE
+            )
+
+            # Always save as JPG
+            output_path = (
+                output_directory
+                / f"{class_name}_{index:06d}.jpg"
+            )
+
+            image.save(
+                output_path,
+                format="JPEG",
+                quality=95
+            )
+
+            successful += 1
+
+        except Exception as error:
+
+            failed += 1
+
+            print(
+                f"Skipping {image_path.name}: "
+                f"{error}"
+            )
+
+    return successful, failed
 
 
-    # Get ALL files first
-    files = [
-        f
-        for f in source_class_dir.iterdir()
-        if f.is_file()
-    ]
+# ============================================================
+# Main
+# ============================================================
 
+def main():
+
+    print("=" * 60)
+    print("Cats vs Dogs - Data Preprocessing")
+    print("=" * 60)
+
+    # --------------------------------------------------------
+    # Find source folders
+    # --------------------------------------------------------
+
+    cat_directory, dog_directory = (
+        find_class_directories()
+    )
+
+    # --------------------------------------------------------
+    # Read images
+    # --------------------------------------------------------
+
+    cat_images = get_images(
+        cat_directory
+    )
+
+    dog_images = get_images(
+        dog_directory
+    )
+
+    print()
+    print(
+        f"Found {len(cat_images)} cat images"
+    )
 
     print(
-        f"\n{class_name}: "
-        f"Found {len(files)} files"
+        f"Found {len(dog_images)} dog images"
     )
 
+    if len(cat_images) == 0:
+        raise ValueError(
+            "No cat images were found."
+        )
 
+    if len(dog_images) == 0:
+        raise ValueError(
+            "No dog images were found."
+        )
+
+    # --------------------------------------------------------
     # Shuffle
+    # --------------------------------------------------------
 
-    random.shuffle(files)
+    random.shuffle(cat_images)
+    random.shuffle(dog_images)
 
+    # --------------------------------------------------------
+    # Create splits
+    # --------------------------------------------------------
 
-    # ==================================================
-    # Split
-    # ==================================================
+    def split_images(images):
 
-    total = len(files)
+        total = len(images)
 
-    train_end = int(
-        total * TRAIN_RATIO
-    )
+        train_end = int(
+            total * TRAIN_RATIO
+        )
 
-    val_end = train_end + int(
-        total * VAL_RATIO
-    )
+        val_end = int(
+            total * (TRAIN_RATIO + VAL_RATIO)
+        )
 
+        train = images[:train_end]
 
-    train_files = files[:train_end]
+        val = images[
+            train_end:val_end
+        ]
 
-    val_files = files[
-        train_end:val_end
-    ]
+        test = images[
+            val_end:
+        ]
 
-    test_files = files[
-        val_end:
-    ]
+        return train, val, test
 
+    (
+        cat_train,
+        cat_val,
+        cat_test
+    ) = split_images(cat_images)
+
+    (
+        dog_train,
+        dog_val,
+        dog_test
+    ) = split_images(dog_images)
+
+    # --------------------------------------------------------
+    # Define splits
+    #
+    # IMPORTANT:
+    # Output folder names are ALWAYS lowercase.
+    # --------------------------------------------------------
 
     splits = {
 
-        "train": train_files,
+        "train": {
+            "cats": cat_train,
+            "dogs": dog_train
+        },
 
-        "val": val_files,
+        "val": {
+            "cats": cat_val,
+            "dogs": dog_val
+        },
 
-        "test": test_files
-
+        "test": {
+            "cats": cat_test,
+            "dogs": dog_test
+        }
     }
 
+    # --------------------------------------------------------
+    # Process
+    # --------------------------------------------------------
 
-    # ==================================================
-    # Process images
-    # ==================================================
+    print()
+    print("Processing images...")
+    print()
 
-    for split, split_files in splits.items():
+    for split_name, classes in splits.items():
 
-        successful = 0
+        for class_name, images in classes.items():
 
-        failed = 0
+            output_directory = (
+                PROCESSED_DIR
+                / split_name
+                / class_name
+            )
 
+            successful, failed = process_images(
+                images,
+                output_directory,
+                class_name
+            )
 
-        for index, image_path in enumerate(
-            split_files
-        ):
+            print(
+                f"{split_name:5s} | "
+                f"{class_name:5s} | "
+                f"{successful:6d} processed | "
+                f"{failed:4d} failed"
+            )
 
-            try:
+    # --------------------------------------------------------
+    # Final summary
+    # --------------------------------------------------------
 
-                # Open image
-                image = Image.open(
-                    image_path
-                )
+    print()
+    print("=" * 60)
+    print("Preprocessing completed")
+    print("=" * 60)
 
+    for split_name in [
+        "train",
+        "val",
+        "test"
+    ]:
 
-                # Convert to RGB
-                image = image.convert(
-                    "RGB"
-                )
-
-
-                # Resize
-                image = image.resize(
-                    IMAGE_SIZE
-                )
-
-
-                # Output path
-                output_path = (
-                    OUTPUT_DIR
-                    / split
-                    / class_name
-                    / f"{class_name}_{index}.jpg"
-                )
-
-
-                # Save
-                image.save(
-                    output_path,
-                    "JPEG"
-                )
-
-
-                successful += 1
-
-
-            except Exception as e:
-
-                failed += 1
-
-                print(
-                    f"Could not process "
-                    f"{image_path}: {e}"
-                )
-
-
-        print(
-            f"{split} {class_name}: "
-            f"{successful} processed, "
-            f"{failed} failed"
-        )
-
-
-# ==================================================
-# Final summary
-# ==================================================
-
-print("\n================================")
-print("Preprocessing completed")
-print("================================")
-
-
-for split in ["train", "val", "test"]:
-
-    print(f"\n{split}:")
-
-    for class_name in classes:
-
-        directory = (
-            OUTPUT_DIR
-            / split
-            / class_name
-        )
-
-        count = len(
+        cats_count = len(
             list(
-                directory.glob("*.jpg")
+                (
+                    PROCESSED_DIR
+                    / split_name
+                    / "cats"
+                ).glob("*.jpg")
             )
         )
 
-        print(
-            f"  {class_name}: {count}"
+        dogs_count = len(
+            list(
+                (
+                    PROCESSED_DIR
+                    / split_name
+                    / "dogs"
+                ).glob("*.jpg")
+            )
         )
+
+        total = (
+            cats_count + dogs_count
+        )
+
+        print(
+            f"{split_name:5s}: "
+            f"cats={cats_count}, "
+            f"dogs={dogs_count}, "
+            f"total={total}"
+        )
+
+
+# ============================================================
+# Entry point
+# ============================================================
+
+if __name__ == "__main__":
+    main()
