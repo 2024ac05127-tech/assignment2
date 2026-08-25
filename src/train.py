@@ -16,7 +16,7 @@ from torch.utils.data import DataLoader
 from sklearn.metrics import (
     confusion_matrix,
     classification_report
-)
+ )
 
 
 # ============================================================
@@ -948,7 +948,7 @@ with mlflow.start_run():
     # ========================================================
 
     mlflow.log_artifact(
-        model_path
+        "mlops-project/models/baseline_cnn.pt"
     )
 
 
@@ -957,7 +957,15 @@ with mlflow.start_run():
         "model"
     )
 
+    example_images, _ = next(iter(test_loader))
 
+    example_images = example_images.to(device)
+
+    mlflow.pytorch.log_model(
+        model,
+        name="model",
+        input_example=example_images[:1]
+    )
     print()
     print("=" * 60)
     print("MLflow run completed")
