@@ -1,0 +1,4 @@
+[core]
+    remote = localstore
+['remote "localstore"']
+    url = C:\Users\krish\Documents\BITS\dvc-storage
