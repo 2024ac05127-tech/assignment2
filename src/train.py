@@ -1,3 +1,4 @@
+from pathlib import Path
 import os
 
 import torch
@@ -27,7 +28,7 @@ IMAGE_SIZE = 224
 
 BATCH_SIZE = 32
 
-EPOCHS = 5
+EPOCHS = 3
 
 LEARNING_RATE = 0.001
 
@@ -42,19 +43,15 @@ torch.manual_seed(SEED)
 # Directories
 # ============================================================
 
-MODEL_DIR = "models"
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-ARTIFACT_DIR = "artifacts"
+MODEL_DIR = PROJECT_ROOT / "models"
 
-os.makedirs(
-    MODEL_DIR,
-    exist_ok=True
-)
+ARTIFACT_DIR = PROJECT_ROOT / "artifacts"
 
-os.makedirs(
-    ARTIFACT_DIR,
-    exist_ok=True
-)
+MODEL_DIR.mkdir(parents=True, exist_ok=True)
+
+ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
 
 
 # ============================================================
@@ -151,18 +148,25 @@ val_test_transform = transforms.Compose([
 # Load datasets
 # ============================================================
 
+DATA_ROOT = PROJECT_ROOT / "data" / "processed_small"
+
+# if not DATA_ROOT.exists():
+#     DATA_ROOT = PROJECT_ROOT / "data" / "processed"
+
+print(f"Using dataset: {DATA_ROOT}")
+
 train_dataset = datasets.ImageFolder(
-    root="data/processed/train",
+    root=str(DATA_ROOT / "train"),
     transform=train_transform
 )
 
 val_dataset = datasets.ImageFolder(
-    root="data/processed/val",
+    root=str(DATA_ROOT / "val"),
     transform=val_test_transform
 )
 
 test_dataset = datasets.ImageFolder(
-    root="data/processed/test",
+    root=str(DATA_ROOT / "test"),
     transform=val_test_transform
 )
 
@@ -794,9 +798,7 @@ with mlflow.start_run():
     plt.tight_layout()
 
 
-    confusion_matrix_path = (
-        f"{ARTIFACT_DIR}/confusion_matrix.png"
-    )
+    confusion_matrix_path = ARTIFACT_DIR / "confusion_matrix.png"
 
 
     plt.savefig(
@@ -807,9 +809,25 @@ with mlflow.start_run():
 
 
     mlflow.log_artifact(
-        confusion_matrix_path
+        str(confusion_matrix_path)
     )
 
+
+    # ========================================================
+    # Verify history before plotting
+    # ========================================================
+
+    if not train_losses or not val_losses:
+        raise RuntimeError(
+            "Training history is empty. Check that the training loop "
+            "completed at least one epoch."
+        )
+
+    if not train_accuracies or not val_accuracies:
+        raise RuntimeError(
+            "Accuracy history is empty. Check that the training loop "
+            "completed at least one epoch."
+        )
 
     # ========================================================
     # Loss curve
@@ -819,14 +837,14 @@ with mlflow.start_run():
 
 
     plt.plot(
-        range(1, EPOCHS + 1),
+        range(1, len(train_losses) + 1),
         train_losses,
         label="Train Loss"
     )
 
 
     plt.plot(
-        range(1, EPOCHS + 1),
+        range(1, len(val_losses) + 1),
         val_losses,
         label="Validation Loss"
     )
@@ -849,9 +867,7 @@ with mlflow.start_run():
     plt.tight_layout()
 
 
-    loss_curve_path = (
-        f"{ARTIFACT_DIR}/loss_curve.png"
-    )
+    loss_curve_path = ARTIFACT_DIR / "loss_curve.png"
 
 
     plt.savefig(
@@ -862,7 +878,7 @@ with mlflow.start_run():
 
 
     mlflow.log_artifact(
-        loss_curve_path
+        str(loss_curve_path)
     )
 
 
@@ -874,14 +890,14 @@ with mlflow.start_run():
 
 
     plt.plot(
-        range(1, EPOCHS + 1),
+        range(1, len(train_accuracies) + 1),
         train_accuracies,
         label="Train Accuracy"
     )
 
 
     plt.plot(
-        range(1, EPOCHS + 1),
+        range(1, len(val_accuracies) + 1),
         val_accuracies,
         label="Validation Accuracy"
     )
@@ -904,9 +920,7 @@ with mlflow.start_run():
     plt.tight_layout()
 
 
-    accuracy_curve_path = (
-        f"{ARTIFACT_DIR}/accuracy_curve.png"
-    )
+    accuracy_curve_path = ARTIFACT_DIR / "accuracy_curve.png"
 
 
     plt.savefig(
@@ -917,7 +931,7 @@ with mlflow.start_run():
 
 
     mlflow.log_artifact(
-        accuracy_curve_path
+        str(accuracy_curve_path)
     )
 
 
@@ -925,9 +939,7 @@ with mlflow.start_run():
     # Save model
     # ========================================================
 
-    model_path = (
-        f"{MODEL_DIR}/baseline_cnn.pt"
-    )
+    model_path = MODEL_DIR / "baseline_cnn.pt"
 
 
     torch.save(
@@ -947,24 +959,24 @@ with mlflow.start_run():
     # Log model to MLflow
     # ========================================================
 
-    mlflow.log_artifact(
-        "mlops-project/models/baseline_cnn.pt"
-    )
+    # Log the locally saved .pt file as an MLflow artifact.
+    mlflow.log_artifact(str(model_path), artifact_path="model_files")
 
-
-    mlflow.pytorch.log_model(
-        model,
-        "model"
-    )
-
+    # Prepare a representative input for MLflow.
+    # Use CPU so the logged model is portable.
     example_images, _ = next(iter(test_loader))
+    example_images = example_images.to("cpu")
 
-    example_images = example_images.to(device)
+    model = model.to("cpu")
+    model.eval()
 
+    # Use pickle serialization explicitly. This avoids the PT2/TensorSpec
+    # requirement that caused the previous MLflow error.
     mlflow.pytorch.log_model(
         model,
         name="model",
-        input_example=example_images[:1]
+        input_example=example_images[:1],
+        serialization_format="pickle"
     )
     print()
     print("=" * 60)
