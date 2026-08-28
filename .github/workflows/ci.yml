@@ -1,5 +1,5 @@
 name: M3 CI Pipeline
-
+# This workflow will run tests, build the Docker image, and push it to Docker Hub when changes are pushed to the main or master branch.
 on:
   push:
     branches:
