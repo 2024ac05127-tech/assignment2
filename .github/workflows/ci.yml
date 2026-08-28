@@ -14,54 +14,51 @@ on:
 
 jobs:
 
-  test-and-build:
+  test-build-publish:
 
     runs-on: ubuntu-latest
 
-    steps:
+    env:
+      PYTHONPATH: ${{ github.workspace }}
 
-      # --------------------------------------------------
-      # 1. Checkout repository
-      # --------------------------------------------------
+    steps:
 
       - name: Checkout repository
         uses: actions/checkout@v4
 
-
-      # --------------------------------------------------
-      # 2. Set up Python
-      # --------------------------------------------------
-
       - name: Set up Python
         uses: actions/setup-python@v5
-
         with:
           python-version: "3.12"
-
-
-      # --------------------------------------------------
-      # 3. Install dependencies
-      # --------------------------------------------------
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-
-      # --------------------------------------------------
-      # 4. Run unit tests
-      # --------------------------------------------------
-
       - name: Run pytest
         run: |
           pytest -v
 
-
-      # --------------------------------------------------
-      # 5. Build Docker image
-      # --------------------------------------------------
+      - name: Login to Docker Hub
+        if: github.event_name == 'push'
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker image
         run: |
-          docker build -t cats-dogs-api:${{ github.sha }} .
+          docker build \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/cats-dogs-api:${{ github.sha }} \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/cats-dogs-api:latest \
+            .
+
+      - name: Push Docker image
+        if: github.event_name == 'push'
+        run: |
+          docker push \
+            ${{ secrets.DOCKERHUB_USERNAME }}/cats-dogs-api:${{ github.sha }}
+
+          docker push \
+            ${{ secrets.DOCKERHUB_USERNAME }}/cats-dogs-api:latest
