@@ -37,15 +37,19 @@ jobs:
           pip install dvc
 
       - name: Configure DVC authentication
-        
         run: |
           dvc remote modify --local dagshub auth basic
           dvc remote modify --local dagshub user "${{ secrets.DAGSHUB_USERNAME }}"
           dvc remote modify --local dagshub password "${{ secrets.DAGSHUB_TOKEN }}"
 
-      - name: Pull model from DVC remote
+      - name: Check DVC remote
         run: |
-          dvc pull models/baseline_cnn.pt.dvc
+          dvc remote list
+          dvc remote default
+
+      - name: Pull model from DVC
+        run: |
+          dvc pull models/baseline_cnn.pt.dvc -v
 
       - name: Run pytest
         run: |
