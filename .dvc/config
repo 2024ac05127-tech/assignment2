@@ -1,4 +1,6 @@
 [core]
-    remote = localstore
+    remote = dagshub
 ['remote "localstore"']
     url = C:\Users\krish\Documents\BITS\dvc-storage
+['remote "dagshub"']
+    url = https://dagshub.com/2024ac05127-tech/mlops-project.dvc
