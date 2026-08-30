@@ -42,5 +42,5 @@ jobs:
 
       - name: Run smoke tests
         run: |
-          python tests\smoke_test.py
+          python smoke_tests.py
 #    
