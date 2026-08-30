@@ -17,4 +17,4 @@ COPY models/baseline_cnn.pt ./models/baseline_cnn.pt
 EXPOSE 8000
 
 # Start FastAPI
-CMD ["uvicorn", "src.inference:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "-m", "uvicorn", "src.inference:app", "--host", "0.0.0.0", "--port", "8000"]

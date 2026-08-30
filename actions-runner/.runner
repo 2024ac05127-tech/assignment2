@@ -1,0 +1,11 @@
+﻿{
+  "agentId": 21,
+  "agentName": "LAPTOP-LV9R7JH7",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelinesghubeus11.actions.githubusercontent.com/HYuKmglMQMl7trVwvnqxtOY8iQZGcBLZase1hxQ2xSLdHe4AJJ/",
+  "gitHubUrl": "https://github.com/2024ac05127-tech/assignment2",
+  "workFolder": "_work",
+  "useV2Flow": true,
+  "serverUrlV2": "https://broker.actions.githubusercontent.com/"
+}

@@ -1,0 +1,471 @@
+[2026-08-30 11:15:32Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Bin': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\bin'
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Root': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner'
+[2026-08-30 11:15:32Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.credentials'
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Bin': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\bin'
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Root': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner'
+[2026-08-30 11:15:32Z INFO HostContext] Well known config file 'Runner': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.runner'
+[2026-08-30 11:15:32Z INFO Listener] Runner is built for Windows (X64) - win-x64.
+[2026-08-30 11:15:32Z INFO Listener] RuntimeInformation: Microsoft Windows 10.0.22631.
+[2026-08-30 11:15:32Z INFO Listener] Version: 2.336.0
+[2026-08-30 11:15:32Z INFO Listener] Commit: 98aabcd429c4e8402406c56ce2d26387fed3b9ce
+[2026-08-30 11:15:32Z INFO Listener] Culture: en-IN
+[2026-08-30 11:15:32Z INFO Listener] UI Culture: en-US
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Bin': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\bin'
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Root': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner'
+[2026-08-30 11:15:32Z INFO Listener] Validating directory permissions for: 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner'
+[2026-08-30 11:15:32Z INFO CommandLineParser] Parse
+[2026-08-30 11:15:32Z INFO CommandLineParser] Parsing 1 args
+[2026-08-30 11:15:32Z INFO CommandLineParser] parsing argument
+[2026-08-30 11:15:32Z INFO CommandLineParser] HasArgs: False
+[2026-08-30 11:15:32Z INFO CommandLineParser] Adding Command: run
+[2026-08-30 11:15:32Z INFO Listener] Arguments parsed
+[2026-08-30 11:15:32Z INFO Runner] ExecuteCommand
+[2026-08-30 11:15:32Z INFO ConfigurationStore] currentAssemblyLocation: C:\Users\krish\Documents\BITS\mlops-project\actions-runner\bin\Runner.Listener.dll
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Bin': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\bin'
+[2026-08-30 11:15:32Z INFO ConfigurationStore] binPath: C:\Users\krish\Documents\BITS\mlops-project\actions-runner\bin
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Bin': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\bin'
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Root': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner'
+[2026-08-30 11:15:32Z INFO ConfigurationStore] RootFolder: C:\Users\krish\Documents\BITS\mlops-project\actions-runner
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Bin': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\bin'
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Root': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner'
+[2026-08-30 11:15:32Z INFO HostContext] Well known config file 'Runner': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.runner'
+[2026-08-30 11:15:32Z INFO ConfigurationStore] ConfigFilePath: C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.runner
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Bin': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\bin'
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Root': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner'
+[2026-08-30 11:15:32Z INFO HostContext] Well known config file 'MigratedRunner': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.runner_migrated'
+[2026-08-30 11:15:32Z INFO ConfigurationStore] MigratedConfigFilePath: C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.runner_migrated
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Bin': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\bin'
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Root': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner'
+[2026-08-30 11:15:32Z INFO HostContext] Well known config file 'Credentials': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.credentials'
+[2026-08-30 11:15:32Z INFO ConfigurationStore] CredFilePath: C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.credentials
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Bin': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\bin'
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Root': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner'
+[2026-08-30 11:15:32Z INFO HostContext] Well known config file 'MigratedCredentials': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.credentials_migrated'
+[2026-08-30 11:15:32Z INFO ConfigurationStore] MigratedCredFilePath: C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.credentials_migrated
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Bin': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\bin'
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Root': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner'
+[2026-08-30 11:15:32Z INFO HostContext] Well known config file 'Service': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.service'
+[2026-08-30 11:15:32Z INFO ConfigurationStore] ServiceConfigFilePath: C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.service
+[2026-08-30 11:15:32Z INFO CommandSettings] Flag 'help': 'False'
+[2026-08-30 11:15:32Z INFO CommandSettings] Flag 'version': 'False'
+[2026-08-30 11:15:32Z INFO CommandSettings] Flag 'commit': 'False'
+[2026-08-30 11:15:32Z INFO CommandSettings] Flag 'check': 'False'
+[2026-08-30 11:15:32Z INFO CommandSettings] Command 'configure': 'False'
+[2026-08-30 11:15:32Z INFO CommandSettings] Command 'remove': 'False'
+[2026-08-30 11:15:32Z INFO CommandSettings] Command 'warmup': 'False'
+[2026-08-30 11:15:32Z INFO ConfigurationManager] LoadSettings
+[2026-08-30 11:15:32Z INFO ConfigurationStore] IsConfigured()
+[2026-08-30 11:15:32Z INFO ConfigurationStore] IsConfigured: True
+[2026-08-30 11:15:32Z INFO ConfigurationManager] Is configured: True
+[2026-08-30 11:15:32Z INFO ConfigurationStore] Read setting file: 408 chars
+[2026-08-30 11:15:32Z INFO ConfigurationManager] Settings Loaded
+[2026-08-30 11:15:32Z INFO ConfigurationStore] IsServiceConfigured()
+[2026-08-30 11:15:32Z INFO ConfigurationStore] IsServiceConfigured: False
+[2026-08-30 11:15:32Z INFO CommandSettings] Command 'run': 'True'
+[2026-08-30 11:15:32Z INFO ConfigurationStore] IsConfigured()
+[2026-08-30 11:15:32Z INFO ConfigurationStore] IsConfigured: True
+[2026-08-30 11:15:32Z INFO ConfigurationManager] Is configured: True
+[2026-08-30 11:15:32Z INFO Runner] Could not parse the argument value '' for StartupType. Defaulting to Manual
+[2026-08-30 11:15:32Z INFO Runner] Set runner startup type - Manual
+[2026-08-30 11:15:32Z INFO CommandSettings] Flag 'once': 'False'
+[2026-08-30 11:15:32Z INFO CommandSettings] Flag 'once': 'False'
+[2026-08-30 11:15:32Z INFO Runner] RunAsync
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Bin': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\bin'
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Root': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner'
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Work': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\_work'
+[2026-08-30 11:15:32Z INFO Runner] Validating directory permissions for: 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\_work'
+[2026-08-30 11:15:32Z INFO ConfigurationManager] LoadMigratedSettings
+[2026-08-30 11:15:32Z INFO ConfigurationStore] IsMigratedConfigured()
+[2026-08-30 11:15:32Z INFO ConfigurationStore] IsMigratedConfigured: False
+[2026-08-30 11:15:32Z INFO Runner] Failed to load migrated settings: No migrated configuration found.
+[2026-08-30 11:15:32Z INFO Runner] Falling back to original .runner settings
+[2026-08-30 11:15:32Z INFO Runner] Using BrokerMessageListener
+[2026-08-30 11:15:32Z INFO BrokerMessageListener] Using provided settings
+[2026-08-30 11:15:32Z INFO BrokerMessageListener] {
+  "AgentId": 21,
+  "AgentName": "LAPTOP-LV9R7JH7",
+  "PoolId": 1,
+  "PoolName": "Default",
+  "ServerUrl": "https://pipelinesghubeus11.actions.githubusercontent.com/HYuKmglMQMl7trVwvnqxtOY8iQZGcBLZase1hxQ2xSLdHe4AJJ/",
+  "GitHubUrl": "https://github.com/2024ac05127-tech/assignment2",
+  "WorkFolder": "_work",
+  "UseV2Flow": true,
+  "ServerUrlV2": "https://broker.actions.githubusercontent.com/"
+}
+[2026-08-30 11:15:32Z INFO BrokerMessageListener] Loading Credentials
+[2026-08-30 11:15:32Z INFO ConfigurationStore] HasCredentials()
+[2026-08-30 11:15:32Z INFO ConfigurationStore] stored True
+[2026-08-30 11:15:32Z INFO CredentialManager] GetCredentialProvider
+[2026-08-30 11:15:32Z INFO CredentialManager] Creating type OAuth
+[2026-08-30 11:15:32Z INFO CredentialManager] Creating credential type: OAuth
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Bin': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\bin'
+[2026-08-30 11:15:32Z INFO HostContext] Well known directory 'Root': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner'
+[2026-08-30 11:15:32Z INFO HostContext] Well known config file 'RSACredentials': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.credentials_rsaparams'
+[2026-08-30 11:15:32Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.credentials_rsaparams
+[2026-08-30 11:15:32Z INFO BrokerMessageListener] Attempt to create session.
+[2026-08-30 11:15:32Z INFO BrokerMessageListener] Connecting to the Broker Server...
+[2026-08-30 11:15:32Z INFO ConfigurationStore] HasCredentials()
+[2026-08-30 11:15:32Z INFO ConfigurationStore] stored True
+[2026-08-30 11:15:32Z INFO CredentialManager] GetCredentialProvider
+[2026-08-30 11:15:32Z INFO CredentialManager] Creating type OAuth
+[2026-08-30 11:15:32Z INFO CredentialManager] Creating credential type: OAuth
+[2026-08-30 11:15:32Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.credentials_rsaparams
+[2026-08-30 11:15:32Z INFO BrokerMessageListener] VssConnection created
+[2026-08-30 11:15:32Z INFO BrokerMessageListener] Connecting to the Runner server...
+[2026-08-30 11:15:32Z INFO RunnerServer] EstablishVssConnection
+[2026-08-30 11:15:32Z INFO RunnerServer] Establish connection with 100 seconds timeout.
+[2026-08-30 11:15:32Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2026-08-30 11:15:33Z INFO RunnerServer] EstablishVssConnection
+[2026-08-30 11:15:33Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2026-08-30 11:15:33Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2026-08-30 11:15:33Z INFO RunnerServer] EstablishVssConnection
+[2026-08-30 11:15:33Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2026-08-30 11:15:33Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2026-08-30 11:15:34Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2026-08-30 11:15:34Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2026-08-30 11:15:34Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2026-08-30 11:15:34Z INFO BrokerMessageListener] VssConnection created
+[2026-08-30 11:15:34Z INFO Terminal] WRITE LINE: 
+[2026-08-30 11:15:34Z INFO Terminal] WRITE LINE: 
+[2026-08-30 11:15:34Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.credentials_rsaparams
+[2026-08-30 11:15:34Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.credentials_rsaparams
+[2026-08-30 11:15:35Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2026-08-30 11:15:36Z INFO BrokerMessageListener] Session created.
+[2026-08-30 11:15:36Z INFO Terminal] WRITE LINE: Current runner version: '2.336.0'
+[2026-08-30 11:15:36Z INFO Terminal] WRITE LINE: 2026-08-30 11:15:36Z: Listening for Jobs
+[2026-08-30 11:15:36Z INFO JobDispatcher] Set runner/worker IPC timeout to 30 seconds.
+[2026-08-30 11:16:31Z INFO BrokerMessageListener] Acknowledging runner request 'b5edc317-9c9f-5d62-9561-2bed05e9ec22'.
+[2026-08-30 11:16:31Z INFO ConfigurationStore] HasCredentials()
+[2026-08-30 11:16:31Z INFO ConfigurationStore] stored True
+[2026-08-30 11:16:31Z INFO CredentialManager] GetCredentialProvider
+[2026-08-30 11:16:31Z INFO CredentialManager] Creating type OAuth
+[2026-08-30 11:16:31Z INFO CredentialManager] Creating credential type: OAuth
+[2026-08-30 11:16:31Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.credentials_rsaparams
+[2026-08-30 11:16:31Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.credentials_rsaparams
+[2026-08-30 11:16:31Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.credentials_rsaparams
+[2026-08-30 11:16:32Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2026-08-30 11:16:34Z INFO JobDispatcher] Job request 0 for plan 3443b351-3fab-469f-83d8-6cc8b4a90ad4 job b5edc317-9c9f-5d62-9561-2bed05e9ec22 received.
+[2026-08-30 11:16:34Z INFO JobDispatcher] Pull OrchestrationId 3443b351-3fab-469f-83d8-6cc8b4a90ad4.deploy.__default from JWT claims
+[2026-08-30 11:16:34Z INFO BrokerMessageListener] Received job status event. JobState: Busy
+[2026-08-30 11:16:34Z INFO BrokerMessageListener] _getMessagesTokenSource is already disposed.
+[2026-08-30 11:16:34Z INFO Terminal] WRITE LINE: 2026-08-30 11:16:34Z: Running job: deploy
+[2026-08-30 11:16:34Z INFO JobDispatcher] Start renew job request 0 for job b5edc317-9c9f-5d62-9561-2bed05e9ec22.
+[2026-08-30 11:16:34Z INFO JobDispatcher] Successfully renew job b5edc317-9c9f-5d62-9561-2bed05e9ec22, job is valid till 30-08-2026 11:26:35
+[2026-08-30 11:16:34Z INFO HostContext] Well known directory 'Bin': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\bin'
+[2026-08-30 11:16:34Z INFO ProcessInvokerWrapper] Starting process:
+[2026-08-30 11:16:34Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\bin\Runner.Worker.exe'
+[2026-08-30 11:16:34Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 2228 1736'
+[2026-08-30 11:16:34Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\bin'
+[2026-08-30 11:16:34Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-08-30 11:16:34Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-08-30 11:16:34Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2026-08-30 11:16:34Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-08-30 11:16:34Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2026-08-30 11:16:34Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-08-30 11:16:34Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2026-08-30 11:16:34Z INFO ProcessInvokerWrapper] Process started with process id 11320, waiting for process exit.
+[2026-08-30 11:16:34Z INFO JobDispatcher] Send job request message to worker for job b5edc317-9c9f-5d62-9561-2bed05e9ec22.
+[2026-08-30 11:16:34Z INFO ProcessChannel] Sending message of length 24540, with hash '2bd9fcb860d2a6c378f927f1980f4497eec1c4061005cabef04ce576ef9b800c'
+[2026-08-30 11:16:35Z INFO JobNotification] Entering JobStarted Notification
+[2026-08-30 11:16:35Z INFO JobNotification] Entering StartMonitor
+[2026-08-30 11:17:36Z INFO JobDispatcher] Successfully renew job b5edc317-9c9f-5d62-9561-2bed05e9ec22, job is valid till 30-08-2026 11:27:36
+[2026-08-30 11:18:36Z INFO JobDispatcher] Successfully renew job b5edc317-9c9f-5d62-9561-2bed05e9ec22, job is valid till 30-08-2026 11:28:36
+[2026-08-30 11:19:36Z INFO JobDispatcher] Successfully renew job b5edc317-9c9f-5d62-9561-2bed05e9ec22, job is valid till 30-08-2026 11:29:36
+[2026-08-30 11:20:36Z INFO JobDispatcher] Successfully renew job b5edc317-9c9f-5d62-9561-2bed05e9ec22, job is valid till 30-08-2026 11:30:37
+[2026-08-30 11:20:47Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:47Z INFO JobDispatcher] Send job cancellation message to worker for job b5edc317-9c9f-5d62-9561-2bed05e9ec22.
+[2026-08-30 11:20:47Z INFO ProcessChannel] Sending message of length 0, with hash 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+[2026-08-30 11:20:47Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:47Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:48Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:48Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:48Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:49Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:49Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:49Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:49Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:50Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:50Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:50Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:50Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:51Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:51Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:51Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:52Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:52Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:52Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:52Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:53Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:53Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:53Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:53Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:54Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:54Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:54Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:54Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:55Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:55Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:55Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:55Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:56Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:56Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:56Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:56Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:57Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:57Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:57Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:57Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:58Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:58Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:58Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:58Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:59Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:59Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:20:59Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:21:00Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:21:00Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:21:00Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:21:00Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:21:01Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:21:01Z INFO JobDispatcher] Job cancellation request b5edc317-9c9f-5d62-9561-2bed05e9ec22 received, cancellation timeout 5 minutes.
+[2026-08-30 11:21:01Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-08-30 11:21:01Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-08-30 11:21:01Z INFO ProcessInvokerWrapper] Finished process 11320 with exit code 103, and elapsed time 00:04:26.6216159.
+[2026-08-30 11:21:01Z INFO JobDispatcher] finish job request for job b5edc317-9c9f-5d62-9561-2bed05e9ec22 with result: Canceled
+[2026-08-30 11:21:01Z INFO Terminal] WRITE LINE: 2026-08-30 11:21:01Z: Job deploy completed with result: Canceled
+[2026-08-30 11:21:01Z INFO JobDispatcher] Stop renew job request for job b5edc317-9c9f-5d62-9561-2bed05e9ec22.
+[2026-08-30 11:21:01Z INFO JobDispatcher] job renew has been cancelled, stop renew job b5edc317-9c9f-5d62-9561-2bed05e9ec22.
+[2026-08-30 11:21:01Z INFO JobNotification] Entering JobCompleted Notification
+[2026-08-30 11:21:01Z INFO JobNotification] Entering EndMonitor
+[2026-08-30 11:21:01Z INFO BrokerMessageListener] Received job status event. JobState: Online
+[2026-08-30 11:21:01Z WARN GitHubActionsService] GET request to https://broker.actions.githubusercontent.com/message?sessionId=89de2715-c674-4776-afa9-8f51b6d3d9b1&status=Busy&runnerVersion=2.336.0&os=Windows&architecture=X64&disableUpdate=false has been cancelled.
+[2026-08-30 11:21:01Z ERR  BrokerServer] Catch exception during request
+[2026-08-30 11:21:01Z ERR  BrokerServer] System.Threading.Tasks.TaskCanceledException: The operation was canceled.
+ ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled.
+ ---> System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request..
+ ---> System.Net.Sockets.SocketException (995): The I/O operation has been aborted because of either a thread exit or an application request.
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at System.Net.Security.SslStream.EnsureFullTlsFrameAsync[TIOAdapter](CancellationToken cancellationToken, Int32 estimatedSize)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Net.Security.SslStream.ReadAsyncInternal[TIOAdapter](Memory`1 buffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithNtAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean isProxyAuth, HttpConnection connection, HttpConnectionPool connectionPool, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at GitHub.Services.Common.RawHttpMessageHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at GitHub.Services.Common.VssHttpRetryMessageHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpClient.HandleFailure(Exception e, Boolean telemetryStarted, HttpResponseMessage response, CancellationTokenSource cts, CancellationToken cancellationToken, CancellationTokenSource pendingRequestsCts)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at Sdk.WebApi.WebApi.RawHttpClientBase.SendAsync(HttpRequestMessage message, HttpCompletionOption completionOption, Object userState, CancellationToken cancellationToken)
+   at Sdk.WebApi.WebApi.RawHttpClientBase.SendAsync[T](HttpRequestMessage message, Boolean readErrorBody, Object userState, CancellationToken cancellationToken)
+   at Sdk.WebApi.WebApi.RawHttpClientBase.SendAsync[T](HttpMethod method, IEnumerable`1 additionalHeaders, Uri requestUri, HttpContent content, IEnumerable`1 queryParameters, Boolean readErrorBody, Object userState, CancellationToken cancellationToken)
+   at GitHub.Actions.RunService.WebApi.BrokerHttpClient.GetRunnerMessageAsync(Nullable`1 sessionId, String runnerVersion, Nullable`1 status, String os, String architecture, Nullable`1 disableUpdate, CancellationToken cancellationToken)
+   at GitHub.Runner.Common.BrokerServer.<>c__DisplayClass7_0.<<GetRunnerMessageAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at GitHub.Runner.Common.RunnerService.RetryRequest[T](Func`1 func, CancellationToken cancellationToken, Int32 maxAttempts, Func`2 shouldRetry)
+[2026-08-30 11:21:01Z ERR  BrokerServer] #####################################################
+[2026-08-30 11:21:01Z ERR  BrokerServer] System.Threading.Tasks.TaskCanceledException: The operation was canceled.
+ ---> System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request..
+ ---> System.Net.Sockets.SocketException (995): The I/O operation has been aborted because of either a thread exit or an application request.
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at System.Net.Security.SslStream.EnsureFullTlsFrameAsync[TIOAdapter](CancellationToken cancellationToken, Int32 estimatedSize)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Net.Security.SslStream.ReadAsyncInternal[TIOAdapter](Memory`1 buffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithNtAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean isProxyAuth, HttpConnection connection, HttpConnectionPool connectionPool, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at GitHub.Services.Common.RawHttpMessageHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at GitHub.Services.Common.VssHttpRetryMessageHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+[2026-08-30 11:21:01Z ERR  BrokerServer] #####################################################
+[2026-08-30 11:21:01Z ERR  BrokerServer] System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request..
+ ---> System.Net.Sockets.SocketException (995): The I/O operation has been aborted because of either a thread exit or an application request.
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at System.Net.Security.SslStream.EnsureFullTlsFrameAsync[TIOAdapter](CancellationToken cancellationToken, Int32 estimatedSize)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Net.Security.SslStream.ReadAsyncInternal[TIOAdapter](Memory`1 buffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+[2026-08-30 11:21:01Z ERR  BrokerServer] #####################################################
+[2026-08-30 11:21:01Z ERR  BrokerServer] System.Net.Sockets.SocketException (995): The I/O operation has been aborted because of either a thread exit or an application request.
+[2026-08-30 11:21:01Z WARN BrokerServer] Back off 5.918 seconds before next retry. 4 attempt left.
+[2026-08-30 11:21:01Z INFO BrokerMessageListener] Get messages has been cancelled using local token source. Continue to get messages with new status.
+[2026-08-30 11:21:13Z INFO BrokerMessageListener] Acknowledging runner request 'ebee129e-ea95-5eec-816f-c2ae18e33ed8'.
+[2026-08-30 11:21:13Z INFO ConfigurationStore] HasCredentials()
+[2026-08-30 11:21:13Z INFO ConfigurationStore] stored True
+[2026-08-30 11:21:13Z INFO CredentialManager] GetCredentialProvider
+[2026-08-30 11:21:13Z INFO CredentialManager] Creating type OAuth
+[2026-08-30 11:21:13Z INFO CredentialManager] Creating credential type: OAuth
+[2026-08-30 11:21:13Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.credentials_rsaparams
+[2026-08-30 11:21:13Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.credentials_rsaparams
+[2026-08-30 11:21:13Z INFO RSAEncryptedFileKeyManager] Loading RSA key parameters from file C:\Users\krish\Documents\BITS\mlops-project\actions-runner\.credentials_rsaparams
+[2026-08-30 11:21:14Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2026-08-30 11:21:15Z INFO JobDispatcher] Job request 0 for plan 592b2395-3171-44a6-b62c-c391973405f7 job ebee129e-ea95-5eec-816f-c2ae18e33ed8 received.
+[2026-08-30 11:21:15Z INFO JobDispatcher] Pull OrchestrationId 592b2395-3171-44a6-b62c-c391973405f7.deploy.__default from JWT claims
+[2026-08-30 11:21:15Z INFO BrokerMessageListener] Received job status event. JobState: Busy
+[2026-08-30 11:21:15Z INFO BrokerMessageListener] _getMessagesTokenSource is already disposed.
+[2026-08-30 11:21:15Z INFO JobDispatcher] Job request b5edc317-9c9f-5d62-9561-2bed05e9ec22 processed succeed.
+[2026-08-30 11:21:15Z INFO Terminal] WRITE LINE: 2026-08-30 11:21:15Z: Running job: deploy
+[2026-08-30 11:21:15Z INFO JobDispatcher] Start renew job request 0 for job ebee129e-ea95-5eec-816f-c2ae18e33ed8.
+[2026-08-30 11:21:16Z INFO JobDispatcher] Successfully renew job ebee129e-ea95-5eec-816f-c2ae18e33ed8, job is valid till 30-08-2026 11:31:16
+[2026-08-30 11:21:16Z INFO HostContext] Well known directory 'Bin': 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\bin'
+[2026-08-30 11:21:16Z INFO ProcessInvokerWrapper] Starting process:
+[2026-08-30 11:21:16Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\bin\Runner.Worker.exe'
+[2026-08-30 11:21:16Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 1564 1568'
+[2026-08-30 11:21:16Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\bin'
+[2026-08-30 11:21:16Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2026-08-30 11:21:16Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2026-08-30 11:21:16Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2026-08-30 11:21:16Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2026-08-30 11:21:16Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2026-08-30 11:21:16Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2026-08-30 11:21:16Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2026-08-30 11:21:16Z INFO ProcessInvokerWrapper] Process started with process id 3344, waiting for process exit.
+[2026-08-30 11:21:16Z INFO JobDispatcher] Send job request message to worker for job ebee129e-ea95-5eec-816f-c2ae18e33ed8.
+[2026-08-30 11:21:16Z INFO ProcessChannel] Sending message of length 24540, with hash '392213fca192d24f41c9ee58532723eda55ffa909e47830219307158673bf397'
+[2026-08-30 11:21:17Z INFO JobNotification] Entering JobStarted Notification
+[2026-08-30 11:21:17Z INFO JobNotification] Entering StartMonitor
+[2026-08-30 11:22:16Z INFO JobDispatcher] Successfully renew job ebee129e-ea95-5eec-816f-c2ae18e33ed8, job is valid till 30-08-2026 11:32:17
+[2026-08-30 11:22:26Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:26Z INFO JobDispatcher] Send job cancellation message to worker for job ebee129e-ea95-5eec-816f-c2ae18e33ed8.
+[2026-08-30 11:22:26Z INFO ProcessChannel] Sending message of length 0, with hash 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+[2026-08-30 11:22:26Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:27Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:27Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:27Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:28Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:28Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:28Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:28Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:29Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:29Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:29Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:30Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:30Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:30Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:30Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:31Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:31Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:31Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:31Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:32Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:32Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:32Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:33Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:33Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:33Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:33Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:34Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:34Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:34Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:34Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:35Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:35Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:35Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:35Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:36Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:36Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:36Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:37Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:37Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:37Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:37Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:38Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:38Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:38Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:38Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:39Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:39Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:39Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:39Z INFO JobDispatcher] Job cancellation request ebee129e-ea95-5eec-816f-c2ae18e33ed8 received, cancellation timeout 5 minutes.
+[2026-08-30 11:22:39Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-08-30 11:22:39Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2026-08-30 11:22:39Z INFO ProcessInvokerWrapper] Finished process 3344 with exit code 103, and elapsed time 00:01:23.3220141.
+[2026-08-30 11:22:39Z INFO JobDispatcher] finish job request for job ebee129e-ea95-5eec-816f-c2ae18e33ed8 with result: Canceled
+[2026-08-30 11:22:39Z INFO Terminal] WRITE LINE: 2026-08-30 11:22:39Z: Job deploy completed with result: Canceled
+[2026-08-30 11:22:39Z INFO JobDispatcher] Stop renew job request for job ebee129e-ea95-5eec-816f-c2ae18e33ed8.
+[2026-08-30 11:22:39Z INFO JobDispatcher] job renew has been cancelled, stop renew job ebee129e-ea95-5eec-816f-c2ae18e33ed8.
+[2026-08-30 11:22:39Z INFO JobNotification] Entering JobCompleted Notification
+[2026-08-30 11:22:39Z INFO JobNotification] Entering EndMonitor
+[2026-08-30 11:22:39Z INFO BrokerMessageListener] Received job status event. JobState: Online
+[2026-08-30 11:22:39Z WARN GitHubActionsService] GET request to https://broker.actions.githubusercontent.com/message?sessionId=89de2715-c674-4776-afa9-8f51b6d3d9b1&status=Busy&runnerVersion=2.336.0&os=Windows&architecture=X64&disableUpdate=false has been cancelled.
+[2026-08-30 11:22:39Z ERR  BrokerServer] Catch exception during request
+[2026-08-30 11:22:39Z ERR  BrokerServer] System.Threading.Tasks.TaskCanceledException: The operation was canceled.
+ ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled.
+ ---> System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request..
+ ---> System.Net.Sockets.SocketException (995): The I/O operation has been aborted because of either a thread exit or an application request.
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at System.Net.Security.SslStream.EnsureFullTlsFrameAsync[TIOAdapter](CancellationToken cancellationToken, Int32 estimatedSize)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Net.Security.SslStream.ReadAsyncInternal[TIOAdapter](Memory`1 buffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithNtAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean isProxyAuth, HttpConnection connection, HttpConnectionPool connectionPool, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at GitHub.Services.Common.RawHttpMessageHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at GitHub.Services.Common.VssHttpRetryMessageHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpClient.HandleFailure(Exception e, Boolean telemetryStarted, HttpResponseMessage response, CancellationTokenSource cts, CancellationToken cancellationToken, CancellationTokenSource pendingRequestsCts)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at Sdk.WebApi.WebApi.RawHttpClientBase.SendAsync(HttpRequestMessage message, HttpCompletionOption completionOption, Object userState, CancellationToken cancellationToken)
+   at Sdk.WebApi.WebApi.RawHttpClientBase.SendAsync[T](HttpRequestMessage message, Boolean readErrorBody, Object userState, CancellationToken cancellationToken)
+   at Sdk.WebApi.WebApi.RawHttpClientBase.SendAsync[T](HttpMethod method, IEnumerable`1 additionalHeaders, Uri requestUri, HttpContent content, IEnumerable`1 queryParameters, Boolean readErrorBody, Object userState, CancellationToken cancellationToken)
+   at GitHub.Actions.RunService.WebApi.BrokerHttpClient.GetRunnerMessageAsync(Nullable`1 sessionId, String runnerVersion, Nullable`1 status, String os, String architecture, Nullable`1 disableUpdate, CancellationToken cancellationToken)
+   at GitHub.Runner.Common.BrokerServer.<>c__DisplayClass7_0.<<GetRunnerMessageAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at GitHub.Runner.Common.RunnerService.RetryRequest[T](Func`1 func, CancellationToken cancellationToken, Int32 maxAttempts, Func`2 shouldRetry)
+[2026-08-30 11:22:39Z ERR  BrokerServer] #####################################################
+[2026-08-30 11:22:39Z ERR  BrokerServer] System.Threading.Tasks.TaskCanceledException: The operation was canceled.
+ ---> System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request..
+ ---> System.Net.Sockets.SocketException (995): The I/O operation has been aborted because of either a thread exit or an application request.
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at System.Net.Security.SslStream.EnsureFullTlsFrameAsync[TIOAdapter](CancellationToken cancellationToken, Int32 estimatedSize)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Net.Security.SslStream.ReadAsyncInternal[TIOAdapter](Memory`1 buffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithNtAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean isProxyAuth, HttpConnection connection, HttpConnectionPool connectionPool, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at GitHub.Services.Common.RawHttpMessageHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at GitHub.Services.Common.VssHttpRetryMessageHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+[2026-08-30 11:22:39Z ERR  BrokerServer] #####################################################
+[2026-08-30 11:22:39Z ERR  BrokerServer] System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request..
+ ---> System.Net.Sockets.SocketException (995): The I/O operation has been aborted because of either a thread exit or an application request.
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at System.Net.Security.SslStream.EnsureFullTlsFrameAsync[TIOAdapter](CancellationToken cancellationToken, Int32 estimatedSize)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Net.Security.SslStream.ReadAsyncInternal[TIOAdapter](Memory`1 buffer, CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+[2026-08-30 11:22:39Z ERR  BrokerServer] #####################################################
+[2026-08-30 11:22:39Z ERR  BrokerServer] System.Net.Sockets.SocketException (995): The I/O operation has been aborted because of either a thread exit or an application request.
+[2026-08-30 11:22:39Z WARN BrokerServer] Back off 6.77 seconds before next retry. 4 attempt left.
+[2026-08-30 11:22:39Z INFO BrokerMessageListener] Get messages has been cancelled using local token source. Continue to get messages with new status.

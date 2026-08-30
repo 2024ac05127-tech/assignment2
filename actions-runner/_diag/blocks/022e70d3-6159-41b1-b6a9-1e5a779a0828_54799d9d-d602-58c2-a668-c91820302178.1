@@ -1,0 +1,51 @@
+﻿2026-08-30T12:01:04.2152729Z Current runner version: '2.336.0'
+2026-08-30T12:01:04.2167840Z Runner name: 'LAPTOP-LV9R7JH7'
+2026-08-30T12:01:04.2169194Z Runner group name: 'Default'
+2026-08-30T12:01:04.2170614Z Machine name: 'LAPTOP-LV9R7JH7'
+2026-08-30T12:01:04.2178544Z ##[group]GITHUB_TOKEN Permissions
+2026-08-30T12:01:04.2182509Z Contents: read
+2026-08-30T12:01:04.2183746Z Metadata: read
+2026-08-30T12:01:04.2184763Z Packages: read
+2026-08-30T12:01:04.2185788Z ##[endgroup]
+2026-08-30T12:01:04.2189613Z Secret source: Actions
+2026-08-30T12:01:04.2191644Z Prepare workflow directory
+2026-08-30T12:01:04.3231118Z Prepare all required actions
+2026-08-30T12:01:04.3321311Z Getting action download info
+2026-08-30T12:01:05.3088924Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-08-30T12:01:07.0020323Z Complete job name: deploy
+2026-08-30T12:01:07.0301784Z ##[warning]You are running out of disk space. The runner will stop working when the machine runs out of disk space. Free space left: 27 MB
+2026-08-30T12:01:07.2730081Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-08-30T12:01:07.2755015Z ##[group]Run actions/checkout@v4
+2026-08-30T12:01:07.2756835Z with:
+2026-08-30T12:01:07.2757929Z   repository: 2024ac05127-tech/assignment2
+2026-08-30T12:01:07.2771424Z   token: ***
+2026-08-30T12:01:07.2778747Z   ssh-strict: true
+2026-08-30T12:01:07.2779962Z   ssh-user: git
+2026-08-30T12:01:07.2784274Z   persist-credentials: true
+2026-08-30T12:01:07.2785418Z   clean: true
+2026-08-30T12:01:07.2787170Z   sparse-checkout-cone-mode: true
+2026-08-30T12:01:07.2788618Z   fetch-depth: 1
+2026-08-30T12:01:07.2789628Z   fetch-tags: false
+2026-08-30T12:01:07.2790690Z   show-progress: true
+2026-08-30T12:01:07.2791764Z   lfs: false
+2026-08-30T12:01:07.2792868Z   submodules: false
+2026-08-30T12:01:07.2793998Z   set-safe-directory: true
+2026-08-30T12:01:07.2795238Z   allow-unsafe-pr-checkout: false
+2026-08-30T12:01:07.2797560Z ##[endgroup]
+2026-08-30T12:01:08.0275425Z Syncing repository: 2024ac05127-tech/assignment2
+2026-08-30T12:01:08.0282735Z ##[group]Getting Git version info
+2026-08-30T12:01:08.0287318Z Working directory is 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\_work\assignment2\assignment2'
+2026-08-30T12:01:08.0689432Z [command]"C:\Program Files\Git\cmd\git.exe" version
+2026-08-30T12:01:08.1293229Z git version 2.33.0.windows.2
+2026-08-30T12:01:08.1372259Z ##[endgroup]
+2026-08-30T12:01:08.1404263Z Copying 'C:\Users\krish\.gitconfig' to 'C:\Users\krish\Documents\BITS\mlops-project\actions-runner\_work\_temp\e72039c2-dfa7-450f-9d6c-796e9cd31374\.gitconfig'
+2026-08-30T12:01:08.1442093Z Temporarily overriding HOME='C:\Users\krish\Documents\BITS\mlops-project\actions-runner\_work\_temp\e72039c2-dfa7-450f-9d6c-796e9cd31374' before making global git config changes
+2026-08-30T12:01:08.1448922Z Adding repository directory to the temporary git global config as a safe directory
+2026-08-30T12:01:08.1461411Z [command]"C:\Program Files\Git\cmd\git.exe" config --global --add safe.directory C:\Users\krish\Documents\BITS\mlops-project\actions-runner\_work\assignment2\assignment2
+2026-08-30T12:01:08.2122914Z [command]"C:\Program Files\Git\cmd\git.exe" config --local --get remote.origin.url
+2026-08-30T12:01:08.2612439Z https://github.com/2024ac05127-tech/assignment2
+2026-08-30T12:01:08.2687630Z ##[group]Removing previously created refs, to avoid conflicts
+2026-08-30T12:01:08.2705573Z [command]"C:\Program Files\Git\cmd\git.exe" rev-parse --symbolic-full-name --verify --quiet HEAD
+2026-08-30T12:01:08.3192487Z refs/heads/main
+2026-08-30T12:01:08.3258373Z [command]"C:\Program Files\Git\cmd\git.exe" checkout --detach
+2026-08-30T12:01:08.4027694Z HEAD is now at ccd4aec Add deployment 

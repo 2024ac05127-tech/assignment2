@@ -38,23 +38,15 @@ jobs:
 
       - name: Configure DVC authentication
         run: |
-          dvc remote modify --local dagshub auth basic
-          dvc remote modify --local dagshub user "${{ secrets.DAGSHUB_USERNAME }}"
-          dvc remote modify --local dagshub password "${{ secrets.DAGSHUB_TOKEN }}"
+          dvc remote modify dagshub --local auth basic
+          dvc remote modify dagshub --local user "${{ secrets.DAGSHUB_USERNAME }}"
+          dvc remote modify dagshub --local password "${{ secrets.DAGSHUB_TOKEN }}"
 
       - name: Check DVC remote
         run: |
           dvc remote list
           dvc remote default
-      - name: Configure DVC remote
-        run: |
-          dvc remote modify dagshub --local auth basic
-          dvc remote modify dagshub --local user "${{ secrets.DAGSHUB_USERNAME }}"
-          dvc remote modify dagshub --local password "${{ secrets.DAGSHUB_TOKEN }}"
 
-      - name: Pull model from DVC
-        run: |
-          dvc pull models/baseline_cnn.pt.dvc -v
       - name: Pull model from DVC
         run: |
           dvc pull models/baseline_cnn.pt.dvc -v
