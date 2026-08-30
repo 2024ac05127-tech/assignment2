@@ -5,7 +5,7 @@ from PIL import Image
 import io
 
 
-BASE_URL = "http://localhost:8000"
+BASE_URL = "http://localhost:8001"
 
 
 # ============================================================
