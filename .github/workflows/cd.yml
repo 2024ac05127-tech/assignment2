@@ -27,10 +27,11 @@ jobs:
         run: |
           docker rm -f cats-dogs-api >nul 2>&1
           exit /b 0
-
       - name: Deploy application
         run: |
-          docker compose up -d
+          docker compose pull
+          docker compose up -d --force-recreate
+      
 
       - name: Check deployment
         run: |
