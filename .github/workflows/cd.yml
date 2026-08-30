@@ -6,21 +6,34 @@ on:
       - main
 
 jobs:
+
   deploy:
     runs-on: self-hosted
 
+    defaults:
+      run:
+        shell: cmd
+
     steps:
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Pull latest Docker image
-        run: docker compose pull
+        run: |
+          docker compose pull
 
       - name: Deploy application
-        run: docker compose up -d
+        run: |
+          docker compose up -d
 
-      - name: Check running containers
-        run: docker compose ps
+      - name: Check deployment
+        run: |
+          docker compose ps
+
+      - name: Wait for application
+        run: |
+          timeout /t 10 /nobreak
 
       - name: Run smoke tests
         run: |
