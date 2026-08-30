@@ -23,11 +23,14 @@ jobs:
         run: |
           docker compose pull
 
+      - name: Remove old container
+        run: |
+          docker rm -f cats-dogs-api >nul 2>&1
+          exit /b 0
+
       - name: Deploy application
         run: |
-            docker compose down
-            docker compose pull
-            docker compose up -d
+          docker compose up -d
 
       - name: Check deployment
         run: |
@@ -40,4 +43,3 @@ jobs:
       - name: Run smoke tests
         run: |
           python smoke_tests.py
-    
