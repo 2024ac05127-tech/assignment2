@@ -29,18 +29,26 @@ jobs:
           exit /b 0
       - name: Deploy application
         run: |
-          docker compose down  
+          docker compose down
           docker compose pull
-          docker compose up -d --force-recreate
-      
+          docker compose up -d
 
       - name: Check deployment
         run: |
           docker compose ps
+          docker compose logs
 
       - name: Wait for application
         run: |
-          ping 127.0.0.1 -n 11 > nul
+          python -c "import time; time.sleep(15)"
+
+      - name: Check health endpoint
+        run: |
+          curl http://localhost:8000/health
+
+      - name: Check metrics endpoint
+        run: |
+          curl http://localhost:8000/metrics
 
       - name: Run smoke tests
         run: |
