@@ -29,6 +29,7 @@ jobs:
           exit /b 0
       - name: Deploy application
         run: |
+          docker compose down  
           docker compose pull
           docker compose up -d --force-recreate
       
