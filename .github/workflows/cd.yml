@@ -1,0 +1,27 @@
+name: M4 CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Pull latest Docker image
+        run: docker compose pull
+
+      - name: Deploy application
+        run: docker compose up -d
+
+      - name: Check running containers
+        run: docker compose ps
+
+      - name: Run smoke tests
+        run: |
+          python smoke_tests.py
