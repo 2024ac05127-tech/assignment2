@@ -1,4 +1,7 @@
 from pathlib import Path
+import io
+import logging
+import time
 
 import torch
 import torch.nn as nn
@@ -29,8 +32,31 @@ MODEL_PATH = (
 
 
 # ============================================================
+# Monitoring metrics
+# ============================================================
+
+request_count = 0
+prediction_count = 0
+error_count = 0
+total_latency = 0.0
+
+
+# ============================================================
+# Logging
+# ============================================================
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
+logger = logging.getLogger(__name__)
+
+
+# ============================================================
 # Model definition
 # ============================================================
+
 class BaselineCNN(nn.Module):
 
     def __init__(self):
@@ -38,7 +64,6 @@ class BaselineCNN(nn.Module):
 
         self.features = nn.Sequential(
 
-            # 224 x 224
             nn.Conv2d(
                 in_channels=3,
                 out_channels=16,
@@ -50,7 +75,6 @@ class BaselineCNN(nn.Module):
 
             nn.MaxPool2d(2),
 
-            # 112 x 112
             nn.Conv2d(
                 in_channels=16,
                 out_channels=32,
@@ -62,7 +86,6 @@ class BaselineCNN(nn.Module):
 
             nn.MaxPool2d(2),
 
-            # 56 x 56
             nn.Conv2d(
                 in_channels=32,
                 out_channels=64,
@@ -74,7 +97,6 @@ class BaselineCNN(nn.Module):
 
             nn.MaxPool2d(2),
 
-            # 28 x 28
             nn.Conv2d(
                 in_channels=64,
                 out_channels=128,
@@ -85,9 +107,6 @@ class BaselineCNN(nn.Module):
             nn.ReLU(),
 
             nn.MaxPool2d(2)
-
-            # Output:
-            # 128 x 14 x 14
         )
 
         self.classifier = nn.Sequential(
@@ -101,12 +120,7 @@ class BaselineCNN(nn.Module):
 
             nn.ReLU(),
 
-            # IMPORTANT:
-            # This must be present because
-            # the trained model contains classifier.4
-            nn.Dropout(
-                p=0.5
-            ),
+            nn.Dropout(p=0.5),
 
             nn.Linear(
                 128,
@@ -121,6 +135,7 @@ class BaselineCNN(nn.Module):
         x = self.classifier(x)
 
         return x
+
 
 # ============================================================
 # Device
@@ -141,7 +156,6 @@ if not MODEL_PATH.exists():
         f"Model not found: {MODEL_PATH}"
     )
 
-
 model.load_state_dict(
     torch.load(
         MODEL_PATH,
@@ -150,7 +164,6 @@ model.load_state_dict(
 )
 
 model.to(device)
-
 model.eval()
 
 
@@ -212,6 +225,30 @@ def health():
 
 
 # ============================================================
+# Metrics endpoint
+# ============================================================
+
+@app.get("/metrics")
+def metrics():
+
+    average_latency = (
+        total_latency / prediction_count
+        if prediction_count > 0
+        else 0.0
+    )
+
+    return {
+        "request_count": request_count,
+        "prediction_count": prediction_count,
+        "error_count": error_count,
+        "average_latency_seconds": round(
+            average_latency,
+            4
+        )
+    }
+
+
+# ============================================================
 # Prediction endpoint
 # ============================================================
 
@@ -220,13 +257,36 @@ async def predict(
     file: UploadFile = File(...)
 ):
 
+    global request_count
+    global prediction_count
+    global error_count
+    global total_latency
+
+    request_count += 1
+
+    start_time = time.time()
+
+    logger.info(
+        "Prediction request received"
+    )
+
+    # --------------------------------------------------------
     # Validate file type
+    # --------------------------------------------------------
+
     if file.content_type not in [
         "image/jpeg",
         "image/png",
         "image/jpg",
         "image/webp"
     ]:
+
+        error_count += 1
+
+        logger.warning(
+            "Unsupported image format: %s",
+            file.content_type
+        )
 
         raise HTTPException(
             status_code=400,
@@ -236,29 +296,34 @@ async def predict(
             )
         )
 
-
     try:
 
-        # Read uploaded image
+        # ----------------------------------------------------
+        # Read image
+        # ----------------------------------------------------
+
         image_bytes = await file.read()
 
         image = Image.open(
-            __import__("io").BytesIO(image_bytes)
+            io.BytesIO(image_bytes)
         ).convert("RGB")
 
-
+        # ----------------------------------------------------
         # Preprocess
+        # ----------------------------------------------------
+
         image_tensor = transform(
             image
         )
 
-        # Add batch dimension
         image_tensor = image_tensor.unsqueeze(0)
 
         image_tensor = image_tensor.to(device)
 
-
+        # ----------------------------------------------------
         # Prediction
+        # ----------------------------------------------------
+
         with torch.no_grad():
 
             outputs = model(
@@ -270,8 +335,10 @@ async def predict(
                 dim=1
             )[0]
 
-
+        # ----------------------------------------------------
         # Predicted class
+        # ----------------------------------------------------
+
         predicted_index = torch.argmax(
             probabilities
         ).item()
@@ -280,8 +347,10 @@ async def predict(
             CLASS_NAMES[predicted_index]
         )
 
+        # ----------------------------------------------------
+        # Probabilities
+        # ----------------------------------------------------
 
-        # Convert probabilities
         probability_dict = {
 
             CLASS_NAMES[i]: round(
@@ -294,6 +363,25 @@ async def predict(
             )
         }
 
+        # ----------------------------------------------------
+        # Latency
+        # ----------------------------------------------------
+
+        latency = time.time() - start_time
+
+        prediction_count += 1
+
+        total_latency += latency
+
+        logger.info(
+            "Prediction completed: label=%s latency=%.4fs",
+            predicted_label,
+            latency
+        )
+
+        # ----------------------------------------------------
+        # Response
+        # ----------------------------------------------------
 
         return {
 
@@ -305,8 +393,13 @@ async def predict(
 
         }
 
-
     except Exception as exc:
+
+        error_count += 1
+
+        logger.exception(
+            "Prediction failed"
+        )
 
         raise HTTPException(
             status_code=500,
